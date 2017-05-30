@@ -2,11 +2,11 @@
 #coding: utf-8
 '''
 #Purpose: Pre-processing Audio Data
-#
 #Model:   39 MFCC Analysis
 #
 #Inputs:  .wav, .raw, stream files
 #Values:  -32768 to 32767, 16 bit, max 0dB, SNR 96.33 dB
+#Outputs:  39 x N MFCC spectrogram
 #Links:
 '''
 import numpy as np
