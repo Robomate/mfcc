@@ -230,21 +230,17 @@ def main(args):
 	print('MFCC analysis completed')
 	#===================================================================
 	# play audio
-	#===================================================================
-	
+	#===================================================================	
 	#~ wavplayer(audio,fs)
-	#~ wavplayer(audio3,fs)
-	
+	#~ wavplayer(audio3,fs)	
 	#===================================================================
 	#plot files:
-	#===================================================================
-	
+	#===================================================================	
 	#~ plotting(audio, fs,1, 211, 'audio .wav file')
 	#~ plotting(audio_pre, fs,1, 212,'pre-emphasis')
 	#plotting(win, fs,2,211,'hamming window','samples')
 	#~ plotting(magfft_list[0], fs,3,211,'fft magnitude','samples')
 	#~ plotting(powfft_list[0], fs,3,212,'fft power','samples')
-	
 	
 	plt.figure(5)
 	plt.suptitle('39 MFCC Spectrogram', fontsize=14,ha='center')
