@@ -217,6 +217,9 @@ minibatch_data = createMinibatchData(batsize_train,nodes,coeffs)
 
 print(minibatch_data[0,:,:])	
 print(minibatch_data.shape)	
+
+data = tf.placeholder(tf.float32, [None, 20,1])
+target = tf.placeholder(tf.float32, [None, 21])
 	
 	
 	
