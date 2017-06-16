@@ -22,8 +22,10 @@ import numpy as np
 import random
 import tensorflow as tf
 import tensorflow.contrib.layers as layers
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
-map_fn = tf.python.functional_ops.map_fn
+map_fn = tf.map_fn
 
 ################################################################################
 ##                           DATASET GENERATION                               ##
@@ -156,7 +158,7 @@ valid_x, valid_y = generate_batch(num_bits=NUM_BITS, batch_size=100)
 
 session = tf.Session()
 # For some reason it is our job to do this:
-session.run(tf.initialize_all_variables())
+session.run(tf.global_variables_initializer()) 
 
 for epoch in range(1000):
     epoch_error = 0
