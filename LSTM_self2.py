@@ -140,6 +140,7 @@ timemarker = date+"_" + daytime
 # init paths:
 path 	 = 'C:/Users/MCU.angelika-HP/Desktop/Korf2017_05/Bachelorarbeit/BA_05/' #on win
 #path 	 = "/home/praktiku/korf/BA_05/" #on praktiku@dell9
+#path 	 = "/home/korf/Desktop/BA_05/" #on korf@lynx5 (labor)
 pathname = "00_data/dataset_filenames/"
 logdir = "tboard_logs/"
 data_dir = "00_data/pattern_hghnr_39coef/"
