@@ -5,7 +5,7 @@
 #Purpose: Acoustic Model (Speech Recognition)
 #
 #Model:   LSTM
-#         500 nodes each layer, trained with Adam
+#         e.g. 500 nodes each layer, trained with Adam
 #
 #Inputs:  Bavarian Speech Corpus (German)
 #		  training utterances: 		56127
@@ -18,7 +18,6 @@
 #
 #Output:  135 classes (45 monophones with 3 HMM states each)
 #Version: 4/2017 Roboball (MattK.)
-
 #Start tensorboard via bash: 	tensorboard --logdir /logfile/directory
 #Open Browser for tensorboard:  localhost:6006
 #tensorboard --logdir /home/praktiku/korf/speechdata/tboard_logs/MLP_5layer_2017-05-10_14:04
@@ -48,12 +47,12 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 # define functions:
 ########################################################################
 
-def loadNamefiles(filenames):
+def load_name_files(filenames):
 	'''load dataset-names from .txt files:'''
 	#load dataset-names from .txt files:
 	return np.genfromtxt(filenames, delimiter=" ",dtype='str')
 
-def loadPatData(filename, headerbytes):
+def load_pat_data(filename, headerbytes):
 	'''load Pattern files:x num of coefficients, 12byte header'''
 	with open(filename, 'rb') as fid:
 		frames = np.fromfile(fid, dtype=np.int32) #get frames
@@ -62,61 +61,68 @@ def loadPatData(filename, headerbytes):
 		datafile = np.fromfile(fid, dtype=np.float32).reshape((frames[0], coeffs)).T 
 	return datafile
 
-def createRandomvec(randomint, epochlength):
+def create_random_vec(randomint, epochlength):
 	'''create random vector'''
 	np.random.seed(randomint)
 	randomvec = np.arange(epochlength)
 	np.random.shuffle(randomvec)
 	return randomvec
 	
-def randomShuffleData(randomint, dataset_name):
+def random_shuffle_data(randomint, dataset_name):
 	'''based on createRandomvec shuffle data randomly'''
 	datasetlength = len(dataset_name)
 	#init random list
 	dataset_rand = []
 	#create random vector
-	randomvec = createRandomvec(randomint, datasetlength)
+	randomvec = create_random_vec(randomint, datasetlength)
 	#fill random list
 	for pos in range(datasetlength):
 		dataset_rand.append(dataset_name[randomvec[pos]])
 	return dataset_rand
 
-def padZeros(datafile):
-	'''pad data with zeros or cut data to layer length'''
-	data_len = datafile.shape[1]
+def pad_zeros(data_file, label_file):
+	'''pad data and labels with zeros or cut data to layer length'''
+	data_len = data_file.shape[1]
+	label_len = label_file.shape[0]
+	assert data_len == label_len, "Error: Data and Label length differ."	
 	if	data_len < nodes:
-		# pad data with zeros to layer length
+		# zero pad data
 		pad_len = nodes - data_len
-		zero_pad = np.zeros([coeffs,pad_len])
-		data_padded = np.concatenate((datafile, zero_pad), axis=1)
+		data_zeros = np.zeros([coeffs,pad_len])
+		data_padded = np.concatenate((data_file, data_zeros), axis=1)
+		# zero pad labels
+		label_zeros = 100 * np.ones([pad_len])
+		label_padded = np.concatenate((label_file, label_zeros), axis=0)
 	elif data_len > nodes:
-		# cut data to layer length
-		data_padded = datafile[:,0:nodes]		
+		# cut data, labels to layer length
+		data_padded = data_file[:,0:nodes]
+		label_padded = label_file[0:nodes]	
 	else:
-		# process data unchanged
-		data_padded = datafile
-	return data_padded.T
+		# process data, labels unchanged
+		data_padded = data_file
+		label_padded = label_file
+	return data_padded.T, label_padded
 
-def createMinibatchData(batsize_train,nodes,coeffs):
-	'''create Minibatch with input[B_size, Seq_Length, Coeffs]'''
-	minibatch_data = np.zeros([batsize_train,nodes,coeffs])
-	for batch in range(batsize_train):
-		print(batch)
-		datafile = loadPatData(datafilename, headerbytes)	
-		data_padded = padZeros(datafile)
+def create_minibatch(minibatchsize,nodes,coeffs,filenames):
+	'''create Minibatch for data and labels'''
+	minibatch_data = np.zeros([minibatchsize,nodes,coeffs])
+	minibatch_label = np.zeros([minibatchsize,nodes,classnum])
+	for batch in range(minibatchsize):
+		# load data
+		data_file = load_pat_data(datapath + filenames[batch], headerbytes)
+		# load labels
+		label_txt = filenames[batch][:-4]+".txt"
+		label_input = labelpath + label_txt
+		label_file = np.loadtxt(label_input)
+		# zero padding
+		data_padded, label_padded = pad_zeros(data_file, label_file)
 		minibatch_data[batch,:,:] = data_padded
-	return minibatch_data
+		#labels: one-hot-encoding
+		for pos_lab in range(nodes):
+			label = int(label_padded[pos_lab])
+			minibatch_label[batch][pos_lab][label-1] = 1.0					
+	return minibatch_data, minibatch_label
 		
-		
-def createMinibatchLabel(minibatchsize , classnum, labelbuffer):
-	'''create one hot encoding from labels'''
-	#init labels with zeros
-	minibatchlabel = np.zeros(shape=(minibatchsize,classnum))	
-	#one-hot-encoding
-	for labelpos in range(minibatchsize):	
-		label = int(labelbuffer[labelpos])
-		minibatchlabel[labelpos][label-1] = 1.0
-	return minibatchlabel
 
 ########################################################################
 # init parameter
@@ -138,9 +144,9 @@ date = timestamp[0:-16]
 timemarker = date+"_" + daytime
 
 # init paths:
-path 	 = 'C:/Users/MCU.angelika-HP/Desktop/Korf2017_05/Bachelorarbeit/BA_05/' #on win
+#path 	 = 'C:/Users/MCU.angelika-HP/Desktop/Korf2017_05/Bachelorarbeit/BA_05/' #on win
 #path 	 = "/home/praktiku/korf/BA_05/" #on praktiku@dell9
-#path 	 = "/home/korf/Desktop/BA_05/" #on korf@lynx5 (labor)
+path 	 = "/home/korf/Desktop/BA_05/" #on korf@lynx5 (labor)
 pathname = "00_data/dataset_filenames/"
 logdir = "tboard_logs/"
 data_dir = "00_data/pattern_hghnr_39coef/"
@@ -154,13 +160,13 @@ validationset_filename = 'validationset.txt'
 testset_filename = 'testset.txt'
 
 #load filenames:
-trainset_name = loadNamefiles(path + pathname + trainset_filename)
-valset_name = loadNamefiles(path + pathname + validationset_filename)
-testset_name = loadNamefiles(path + pathname + testset_filename)
+trainset_name = load_name_files(path + pathname + trainset_filename)
+valset_name = load_name_files(path + pathname + validationset_filename)
+testset_name = load_name_files(path + pathname + testset_filename)
 			
 # init model parameter:
 coeffs = 39  
-nodes = 51 							#size of hidden layer
+nodes = 130					#size of hidden layer
 classnum = 135 							#number of output classes
 framenum = 1 							#number of frames
 inputnum = framenum * coeffs 				#length of input vector
@@ -175,9 +181,7 @@ train_size  = len(trainset_name)
 val_size = len(valset_name)
 tolerance = 0.01                        #break condition  
 batsize_train = 256													
-batches_train = int(train_size / batsize_train) #round down
-buffer_train = 10 		#choose number utterances in buffer
-train_samples = int(train_size/buffer_train)
+train_samples = int(train_size/batsize_train)
 train_samples = 10
 
 # init test parameter:
@@ -195,46 +199,195 @@ buffer_test2=1
 test_samples2=10
 
 #random shuffle filenames:
-valset_rand = randomShuffleData(randomint, valset_name)
+valset_rand = random_shuffle_data(randomint, valset_name)
 #print(valset_rand)
-
 
 #init params:		 
 headerbytes = 12
 datapath  = path + data_dir 
 labelpath = path + label_dir
-#load data file:
-datafilename = datapath + 'is1c0001_001.pat'
+
+# init activation function:
+actdict = ["tanh", "relu", "sigmoid"]
+acttype = actdict[0]
+
+########################################################################
+# init and define model:
+########################################################################
+
+# init model:
+def weight_variable(shape):
+	'''init weights'''
+	initial = tf.truncated_normal(shape, stddev=0.1)
+	return tf.Variable(initial, name="W")
+	
+def bias_variable(shape):
+	'''init biases'''
+	initial = tf.constant(0.1, shape=shape)
+	return tf.Variable(initial, name="b")
+
+def dense(x, W, b, name="dense"):
+	'''matrix vector multiplication'''
+	with tf.name_scope(name):
+		return tf.add(tf.matmul(x, W), b)
+
+def activfunction(x, acttype):
+	'''activation functions'''
+	if acttype == "tanh":
+		activation_array = tf.tanh(x)
+	elif acttype == "relu":
+		activation_array = tf.nn.relu(x)
+	else:
+		activation_array = tf.sigmoid(x)
+	return activation_array
 
 
 
-#~ datafile = loadPatData(datafilename, headerbytes)	
-#~ data_padded = padZeros(datafile)
+
+# init placeholder:
+x_input  = tf.placeholder(tf.float32, (None, None, coeffs))  # (time, batch, in)
+y_target = tf.placeholder(tf.float32, (None, None, classnum)) # (time, batch, out)
 
 
-#input [Batch Size, Sequence Length, Input Dimension]
-#(None, 200, 39)
-minibatch_data = createMinibatchData(batsize_train,nodes,coeffs)	
 
-print(minibatch_data[0,:,:])	
-print(minibatch_data.shape)	
 
-data = tf.placeholder(tf.float32, [None, 20,1])
-target = tf.placeholder(tf.float32, [None, 21])
+
+
+
+
+
+
+
+
+
+# define loss, optimizer, accuracy:
+with tf.name_scope("cross_entropy"):
+	cross_entropy = tf.reduce_mean(
+	tf.nn.softmax_cross_entropy_with_logits(logits= layer_6,labels = y_target))
+	tf.summary.scalar("cross_entropy", cross_entropy)
+with tf.name_scope("train"):
+	optimizer = tf.train.AdamOptimizer(learnrate).minimize(cross_entropy)
+with tf.name_scope("accuracy"):
+	correct_prediction = tf.equal(tf.argmax(layer_6,1), tf.argmax(y_target,1))
+	accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+	tf.summary.scalar("accuracy", accuracy)
+
+# merge all summaries for tensorboard:	
+summ = tf.summary.merge_all()
+
+# init tf session :
+sess = tf.InteractiveSession()
+# save and restore all the variables:
+saver = tf.train.Saver()
+# start session:
+sess.run(tf.global_variables_initializer()) 
+# init tensorboard
+writer = tf.summary.FileWriter(tboard_path + tboard_name)
+writer.add_graph(sess.graph)
+
+# print out model info:
+print("**********************************")
+print("model:"+str(1)+" hidden layer"+str(modtype))
+print("**********************************")
+print("hidden units: "+str(nodes)+" each layer")
+print("activation function: "+str(acttype))
+print("optimizer: Adam")
+print("----------------------------------")
+print("data name: RVG new German speech corpus")
+print("training data: " +str(train_size))
+print("validation data: " +str(val_size))
+print("test data: " +str(test_size)+"\n")
+
+########################################################################
+# training loop:
+########################################################################
+
+def training(epochs,train_samples):
+	'''train the neural model'''
+	print('=============================================')
+	print('start '+str(modtype)+' training')
+	print('=============================================')
+	t1_1 = datetime.datetime.now()
 	
+	# init cost, accuracy:
+	crossval_history = np.empty(shape=[0],dtype=float)
+	cost_history = np.empty(shape=[0],dtype=float)
+	train_acc_history = np.empty(shape=[0],dtype=float)
+
+	# epoch loop:
+	for epoch in range(1,epochs+1):
+		
+		#random shuffle filenames for each epoch:
+		randomint_train = epoch
+		trainset_rand = random_shuffle_data(randomint_train, trainset_name)
+		
+		#training loop: length = int(train_size/buffersamples)	
+		for minibatch in range(train_samples):
+			#grab linear utterances (buffersamples) from random trainset:
+			trainset_buffer = trainset_rand[minibatch * batsize_train:(minibatch * batsize_train) + batsize_train]
+		
+			# minibatch_data [Batch Size, Sequence Length, Input Dimension]
+			#(None, 200, 39)
+			minibatch_data, minibatch_label = create_minibatch(batsize_train,nodes,coeffs,trainset_buffer)
+			#print(minibatch_data[0,:,:])	
+			print(minibatch_data.shape)	
+			
+			#~ print(minibatch_label[-1][129][:].shape)
+			#~ print(minibatch_label[-1][0][:])
+			print(minibatch_label.shape)
+			
+			#start feeding data into the model:
+			feedtrain = {x_input: minibatch_data, y_target: minibatch_label}
+			optimizer.run(feed_dict = feedtrain)
+			
+			#log history for tensorboard
+			if batch % 5 == 0:
+				[train_accuracy, s] = sess.run([accuracy, summ], feed_dict=feedtrain)
+				writer.add_summary(s, batch)
+				
+			#get cost_history, accuracy history data:
+			cost_history = np.append(cost_history,sess.run(cross_entropy,feed_dict=feedtrain))
+			train_acc_history = np.append(train_acc_history,sess.run(accuracy,feed_dict=feedtrain))
+			
+			#check progress: training accuracy
+			if  buffernum%10 == 0:
+				train_accuracy = accuracy.eval(feed_dict=feedtrain)
+				crossvalidationloss = sess.run(cross_entropy,feed_dict=feedtrain)
+				crossval_history = np.append(crossval_history,crossvalidationloss)
+				t1_2 = datetime.datetime.now()
+				print('epoch: '+ str(epoch)+'/'+str(epochs)+
+				' -- training utterance: '+ str(buffernum * buffer_train)+'/'+str(train_size)+
+				" -- cross validation loss: " + str(crossvalidationloss)[0:-2])
+				print('training accuracy: %.2f'% train_accuracy + 
+				" -- training time: " + str(t1_2-t1_1)[0:-7])
+				
+			#~ #stopping condition:
+			#~ if abs(crossval_history[-1] - crossval_history[-2]) < tolerance:
+				#~ break
+		print('=============================================')
 	
+	print('=============================================')
+	#Total Training Stats:
+	total_trainacc = np.mean(train_acc_history, axis=0)
+	print("overall training accuracy %.3f"%total_trainacc)       
+	t1_3 = datetime.datetime.now()
+	train_time = t1_3-t1_1
+	print("total training time: " + str(train_time)[0:-7]+'\n')	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	return train_acc_history, cost_history, crossval_history, train_time, total_trainacc	
+			
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+training(epochs,train_samples)
+
+
+
