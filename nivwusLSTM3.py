@@ -187,119 +187,132 @@ saver = tf.train.Saver()
 session.run(tf.global_variables_initializer()) 
 
 for epoch in range(1000):
-    epoch_error = 0
-    for _ in range(ITERATIONS_PER_EPOCH):
-        # here train_fn is what triggers backprop. error and accuracy on their
-        # own do not trigger the backprop.
-        x, y = generate_batch(num_bits=NUM_BITS, batch_size=BATCH_SIZE)
-        epoch_error += session.run([error, train_fn], {
-            inputs: x,
-            outputs: y,
-        })[0]
-    epoch_error /= ITERATIONS_PER_EPOCH
-    feedvalid = {inputs:  valid_x, outputs: valid_y }
-    valid_accuracy = session.run(accuracy, feedvalid)
-    ####################################################################
-    #get variables lstm:
-    ####################################################################
-    print("lstm")
-    lstm_outx = tf.get_collection(key=tf.GraphKeys.GLOBAL_VARIABLES, scope="LSTM")
-    lstm_out = session.run(lstm_outx,feed_dict=feedvalid)
-    print(len(lstm_out))
-    print(lstm_out[0].shape)
-    print(lstm_out[1].shape)
-    print(lstm_out[2].shape)
-    print(lstm_out[3].shape)
-    print(lstm_out[4].shape)
-    print(lstm_out[5].shape)
-    
-    
-    print("===========")
-    ####################################################################
-    #get variables bnorm, lnorm:
-    ####################################################################
-    predicted_outputs
-    predicted_outputs0 = session.run(predicted_outputs,feed_dict=feedvalid)
-    print(len(session.run(bnorm,feed_dict=feedvalid)))
-    print("predicted_outputs")
-    print(len(predicted_outputs0))
-    print(predicted_outputs0[0].shape)
-    print(predicted_outputs0[9].shape)
-    
-    print("update_ops")
-    print("mov_mean, mov_var")
-    update_ops0 = session.run(update_ops,feed_dict=feedvalid)
-    print(len(update_ops0))
-    print(update_ops0[0])
-    print(update_ops0[1])
-    
-
-    #~ print("update_collections")
-    #~ print("beta, gamma")
-    #~ all_vars8 = tf.get_collection('vars3')
-    #~ all_vars9 = session.run(all_vars8,feed_dict=feedvalid)
-    #~ print(len(all_vars9))
-    #~ print(all_vars9[0])
-    #~ print(all_vars9[1])
-    
-    
-    print("variables_collections")
-    print("mov_mean, mov_var,beta, gamma")
-    all_vars = tf.get_collection('vars2')
-    all_vars4 = session.run(all_vars,feed_dict=feedvalid)
-    print(len(all_vars4))
-    print(all_vars4[0])
-    print(all_vars4[1])
-    print(all_vars4[2])
-    print(all_vars4[3])
-    
-    print("tf.GraphKeys")
-    trainable_var_key = tf.GraphKeys.TRAINABLE_VARIABLES
-    all_vars2 = tf.get_collection(key=trainable_var_key, scope="Bnorm")
-    print("===========")
-    print("beta, gamma")
-    print(all_vars2)
-    all_vars3 = session.run(all_vars2,feed_dict=feedvalid)
-    print(all_vars3[0]) #betas = shift
-    print(all_vars3[1]) #gammas = scale
-    print("===========")
-    
-    #get other variables
-    print("tf.GraphKeys")
-    print("mov_mean, mov_var,beta, gamma")
-    all_vars10 = tf.get_collection(key=tf.GraphKeys.GLOBAL_VARIABLES, scope="Bnorm")
-    all_vars11 = session.run(all_vars10,feed_dict=feedvalid)
-    print("GLOBAL")
-    print(len(all_vars11))
-    print(all_vars11)
-    
-    print("===========")
-    print("lnorm")
-    print("variables_collections")
-    all_vars44 = tf.get_collection('varsx')
-    all_vars45 = session.run(all_vars44,feed_dict=feedvalid)
-    print(len(all_vars45))
-    print(all_vars45[0])
-    print(all_vars45[1])
-    
-    print("tf.GraphKeysLnorm")
-    trainables_var_key = tf.GraphKeys.TRAINABLE_VARIABLES
-    all_vars23 = tf.get_collection(key=trainables_var_key, scope="Lnorm")
-    print("===========")
-    print("beta, gamma")
-    print(all_vars23)
-    all_vars33 = session.run(all_vars23,feed_dict=feedvalid)
-    print(all_vars33[0]) #betas = shift
-    print(all_vars33[1]) #gammas = scale
-      #get other variables
-    print("tf.GraphKeysLnorm2")
-    print("beta, gamma")
-    all_vars15 = tf.get_collection(key=tf.GraphKeys.GLOBAL_VARIABLES, scope="Lnorm")
-    all_vars16 = session.run(all_vars15,feed_dict=feedvalid)
-    print("GLOBAL")
-    print(len(all_vars16))
-    print(all_vars16)
-    print("===========")
-    print("===========")
-    
-    #print ("Epoch %d, train error: %.2f, valid accuracy: %.1f %%" % (epoch, epoch_error, valid_accuracy * 100.0))
+	epoch_error = 0
+	for _ in range(ITERATIONS_PER_EPOCH):
+		# here train_fn is what triggers backprop. error and accuracy on their
+		# own do not trigger the backprop.
+		x, y = generate_batch(num_bits=NUM_BITS, batch_size=BATCH_SIZE)
+		epoch_error += session.run([error, train_fn], {
+			inputs: x,
+			outputs: y,
+		})[0]
+	epoch_error /= ITERATIONS_PER_EPOCH
+	feedvalid = {inputs:  valid_x, outputs: valid_y }
+	valid_accuracy = session.run(accuracy, feedvalid)
+	####################################################################
+	#get variables lstm:
+	####################################################################
+	print("lstm")
+	lstm_outx = tf.get_collection(key=tf.GraphKeys.GLOBAL_VARIABLES, scope="LSTM")
+	lstm_out = session.run(lstm_outx,feed_dict=feedvalid)
+	print(lstm_outx)
+	print(len(lstm_out))
+	print(lstm_out[0].shape)
+	print(lstm_out[1].shape)
+	print(lstm_out[2].shape)
+	print(lstm_out[3].shape)
+	print(lstm_out[4].shape)
+	print(lstm_out[5].shape)
+	
+	
+	print("===========")
+	####################################################################
+	#get variables bnorm:
+	####################################################################
+	predicted_outputs
+	predicted_outputs0 = session.run(predicted_outputs,feed_dict=feedvalid)
+	print(len(session.run(bnorm,feed_dict=feedvalid)))
+	print("predicted_outputs")
+	print(len(predicted_outputs0))
+	print(predicted_outputs0[0].shape)
+	print(predicted_outputs0[9].shape)
+	
+	print("update_ops")
+	print("mov_mean, mov_var")
+	update_ops0 = session.run(update_ops,feed_dict=feedvalid)
+	print(len(update_ops0))
+	print(update_ops0[0])
+	print(update_ops0[1])
+	
+	
+	#~ print("update_collections")
+	#~ print("beta, gamma")
+	#~ all_vars8 = tf.get_collection('vars3')
+	#~ all_vars9 = session.run(all_vars8,feed_dict=feedvalid)
+	#~ print(len(all_vars9))
+	#~ print(all_vars9[0])
+	#~ print(all_vars9[1])
+	
+	
+	print("variables_collections")
+	print("mov_mean, mov_var,beta, gamma")
+	all_vars = tf.get_collection('vars2')
+	all_vars4 = session.run(all_vars,feed_dict=feedvalid)
+	print(all_vars)
+	print(len(all_vars4))
+	print(all_vars4[0])
+	print(all_vars4[1])
+	print(all_vars4[2])
+	print(all_vars4[3])
+	
+	print("tf.GraphKeys.TRAINABLE_VARIABLES")
+	trainable_var_key = tf.GraphKeys.TRAINABLE_VARIABLES
+	all_vars2 = tf.get_collection(key=trainable_var_key, scope="Bnorm")
+	print("===========")
+	print("beta, gamma")
+	print(all_vars2)
+	all_vars3 = session.run(all_vars2,feed_dict=feedvalid)
+	print(all_vars3[0]) #betas = shift
+	print(all_vars3[1]) #gammas = scale
+	print("===========")
+	
+	#get other variables
+	print("tf.GraphKeys.GLOBAL_VARIABLES")
+	print("mov_mean, mov_var,beta, gamma")
+	all_vars10 = tf.get_collection(key=tf.GraphKeys.GLOBAL_VARIABLES, scope="Bnorm")
+	all_vars11 = session.run(all_vars10,feed_dict=feedvalid)
+	print(all_vars10)
+	print(len(all_vars11))
+	print(all_vars11)
+	####################################################################
+	#get variables lnorm:
+	####################################################################
+	print("===========")
+	print("lnorm.variables_collections")
+	print("beta, gamma")
+	all_vars44 = tf.get_collection('varsx')
+	all_vars45 = session.run(all_vars44,feed_dict=feedvalid)
+	print(all_vars44)
+	print(len(all_vars45))
+	print(all_vars45[0])
+	print(all_vars45[1])
+	####################################################################
+	#assign variables to  lnorm:
+	####################################################################
+	#get the tf.variable
+	beta_ass = all_vars44[0].assign(np.ones(all_vars44[0].shape) * 7)
+	#sess.run is needed to really assign values to matrices!!
+	print("assigned: beta")
+	print (session.run(beta_ass))
+	
+	print("Lnorm: tf.GraphKeys.TRAINABLE_VARIABLES")
+	trainables_var_key = tf.GraphKeys.TRAINABLE_VARIABLES
+	all_vars23 = tf.get_collection(key=trainables_var_key, scope="Lnorm")
+	print("beta, gamma")
+	print(all_vars23)
+	all_vars33 = session.run(all_vars23,feed_dict=feedvalid)
+	print(all_vars33[0]) #betas = shift
+	print(all_vars33[1]) #gammas = scale
+	#get other variables
+	print("Lnorm: tf.GraphKeys.GLOBAL_VARIABLES")
+	print("beta, gamma")
+	all_vars15 = tf.get_collection(key=tf.GraphKeys.GLOBAL_VARIABLES, scope="Lnorm")
+	all_vars16 = session.run(all_vars15,feed_dict=feedvalid)
+	print(all_vars15)
+	print(len(all_vars16))
+	print(all_vars16)
+	print("===========")
+	print("===========")
+	
+	#print ("Epoch %d, train error: %.2f, valid accuracy: %.1f %%" % (epoch, epoch_error, valid_accuracy * 100.0))
+	
