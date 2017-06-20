@@ -202,6 +202,19 @@ for epoch in range(1000):
 	####################################################################
 	#get variables lstm:
 	####################################################################
+	print("output")
+	outputs = session.run(rnn_outputs,feed_dict=feedvalid)
+	print(outputs)
+	print(outputs.shape)
+	print("states") #for Lstm tuple
+	statess = session.run(rnn_states,feed_dict=feedvalid)
+	print(statess)
+	print(len(statess))
+	print(statess[0])
+	print(statess[1])
+	print(statess[0].shape)
+	print(statess[1].shape)
+	
 	print("lstm")
 	lstm_outx = tf.get_collection(key=tf.GraphKeys.GLOBAL_VARIABLES, scope="LSTM")
 	lstm_out = session.run(lstm_outx,feed_dict=feedvalid)
