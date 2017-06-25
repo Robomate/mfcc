@@ -2,6 +2,8 @@
 
 #lstm
 
+https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html
+
 https://www.cs.toronto.edu/~fritz/absps/RNN13.pdf
 
 
