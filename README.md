@@ -1,6 +1,6 @@
 # links
 
-#lstm
+#lstm, multiRnncell
 
 https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html
 
