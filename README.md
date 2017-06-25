@@ -14,3 +14,5 @@ https://github.com/aymericdamien/TensorFlow-Examples/issues/8
 https://stackoverflow.com/questions/38059247/using-tensorflows-connectionist-temporal-classification-ctc-implementation
 
 https://gab41.lab41.org/speech-recognition-you-down-with-ctc-8d3b558943f0
+
+https://stackoverflow.com/questions/40779479/preparing-target-label-in-tensorflow-python-for-ctc-loss
