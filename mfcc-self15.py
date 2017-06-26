@@ -1,10 +1,19 @@
 #!/usr/bin/env python
 #coding: utf-8
 '''
-
-# http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/
-values: -32768 to 32767, 16 bit, max 0dB, SNR 96.33 dB
-
+#Purpose: Pre-Processing Modul for Acoustic Modelling
+#
+#
+#Model:   MFCC Analysis
+#         (1) DFT
+#         (2) 40 log MEL-Bank
+#		  (3) 1 log Energy
+#         (4) 13 MFCCs
+#         (5) Deltas, DeltaDeltas
+#
+#Inputs:  Audio .wav, .raw files
+#         16 bit, values: -32768 to 32767, max SNR 0dB - 96.33 dB
+#Outputs: Spectrograms (DFT, Melbank, MFCC features)
 '''
 import numpy as np
 from matplotlib import pyplot as plt
@@ -160,8 +169,8 @@ def staticfeatures(energy_list, mfcclift_list):
 			mfcclift_list[pos][0] = energy_list[pos]
 			mfccs = mfcclift_list[pos]
 			cepstrum[[pos],:] = mfccs[:,np.newaxis].T
-	print(cepstrum.shape)
-	print(cepstrum[-1,:])
+	#print(cepstrum.shape)
+	#print(cepstrum[-1,:])
 	return cepstrum
 	
 def delta(features, pad_fac=2):
@@ -171,25 +180,25 @@ def delta(features, pad_fac=2):
 	delta_features = np.zeros_like(features)
 	#~ print(frame_num)
 	#~ print('denom:',denominator)
-	print('delta_feat',delta_features.shape)
+	#print('delta_feat',delta_features.shape)
 	
 	padded = np.pad(features, ((pad_fac, pad_fac), (0, 0)), mode='edge') 
-	print(padded)
-	print(padded.shape)
+	#print(padded)
+	#print(padded.shape)
 	# numerical gradient:
 	for t in range(frame_num):
 		delta_features[t] = np.dot(np.arange(-pad_fac, pad_fac+1),
 							padded[t : t+2*pad_fac+1]) / denominator	
-	print(delta_features[t])			
+	#print(delta_features[t])			
 	return delta_features
 
 def spectrograms(cepstrum,delta_features,delta_delta_features):
 	"""spectrogram with 39 features"""
-	print(cepstrum.shape)
+	#print(cepstrum.shape)
 	#np.concatenate(cepstrum,delta_features,deltadelta_features)
 	spectrogram = np.append(cepstrum,delta_features, axis=1)
 	spectrogram = np.append(spectrogram,delta_delta_features, axis=1)
-	print(spectrogram.shape)
+	#print(spectrogram.shape)
 	
 	return spectrogram
 
