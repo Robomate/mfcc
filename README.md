@@ -13,6 +13,8 @@ https://github.com/aymericdamien/TensorFlow-Examples/issues/8
 
 https://stackoverflow.com/questions/42488070/how-to-design-the-label-for-tensorflows-ctc-loss-layer?rq=1
 
+https://igormq.github.io/2016/07/19/ctc-tensorflow-timit/
+
 https://github.com/igormq/ctc_tensorflow_example/blob/master/ctc_tensorflow_example.py
 
 https://stackoverflow.com/questions/38059247/using-tensorflows-connectionist-temporal-classification-ctc-implementation
