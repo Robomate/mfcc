@@ -11,13 +11,14 @@ https://github.com/aymericdamien/TensorFlow-Examples/issues/8
 
 #CTC and BI-LSTM in tf
 
+https://stackoverflow.com/questions/42488070/how-to-design-the-label-for-tensorflows-ctc-loss-layer?rq=1
+
 https://stackoverflow.com/questions/38059247/using-tensorflows-connectionist-temporal-classification-ctc-implementation
 
 https://gab41.lab41.org/speech-recognition-you-down-with-ctc-8d3b558943f0
 
 https://stackoverflow.com/questions/40779479/preparing-target-label-in-tensorflow-python-for-ctc-loss
 
-https://stackoverflow.com/questions/42488070/how-to-design-the-label-for-tensorflows-ctc-loss-layer?rq=1
 
 #RNN Transducer
 
