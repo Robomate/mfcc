@@ -25,3 +25,5 @@ https://stackoverflow.com/questions/42488070/how-to-design-the-label-for-tensorf
 #Attention Encoder Decoder
 
 https://blog.heuritech.com/2016/01/20/attention-mechanism/
+
+https://github.com/ilivans/tf-rnn-attention/blob/master/attention.py
