@@ -43,7 +43,7 @@ except:
 
 # remove warnings from tf
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-map_fn = tf.map_fn
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 ########################################################################
 # define functions:
