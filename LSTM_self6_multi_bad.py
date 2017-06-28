@@ -177,7 +177,7 @@ display_step = 100 						#to show progress
 bnorm = 'no_bnorm'
 lnorm = 'no_lnorm'
 USE_BASIC_LSTM = False
-USE_LSTM = False
+USE_LSTM = True
 USE_GRU = False
 num_layers = 1 					#vertical layer stacking
 	
@@ -260,10 +260,12 @@ else:
 	stack = tf.nn.rnn_cell.MultiRNNCell([cell] * num_layers)
 	
 
-#batch_size = tf.shape(x_input)[0]
 initial_state = cell.zero_state(batsize_train, tf.float32)
+# 1d array of size [batch_size]
+seq_len = tf.placeholder(tf.int32, [None])
 with tf.variable_scope("LSTM"):
-	rnn_outputs, rnn_states = tf.nn.dynamic_rnn(stack, x_input, initial_state=initial_state, time_major=False)
+	rnn_outputs, rnn_states = tf.nn.dynamic_rnn(stack,x_input, time_major=False,dtype=tf.float32)
+	#rnn_outputs, rnn_states = tf.nn.dynamic_rnn(stack, x_input, initial_state=initial_state, time_major=False)
 
  
 #reshape rnn_outputs !!! check if correct
