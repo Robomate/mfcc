@@ -30,6 +30,8 @@ Dissertation
 
 http://repository.cmu.edu/cgi/viewcontent.cgi?article=1762&context=dissertations
 
+https://cs.stanford.edu/~acoates/ba_dls_speech2016.pdf
+
 #Attention Encoder Decoder
 
 https://blog.heuritech.com/2016/01/20/attention-mechanism/
