@@ -26,6 +26,9 @@ https://stackoverflow.com/questions/40779479/preparing-target-label-in-tensorflo
 
 #RNN Transducer
 
+Dissertation
+
+http://repository.cmu.edu/cgi/viewcontent.cgi?article=1762&context=dissertations
 
 #Attention Encoder Decoder
 
