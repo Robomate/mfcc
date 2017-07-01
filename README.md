@@ -27,6 +27,10 @@ https://gab41.lab41.org/speech-recognition-you-down-with-ctc-8d3b558943f0
 
 https://stackoverflow.com/questions/40779479/preparing-target-label-in-tensorflow-python-for-ctc-loss
 
+#Beam Search
+
+https://stackoverflow.com/questions/22273119/beam-search-algorithm-how-does-it-work
+
 
 #RNN Transducer
 
