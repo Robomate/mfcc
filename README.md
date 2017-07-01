@@ -6,10 +6,14 @@ https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html
 
 https://www.cs.toronto.edu/~fritz/absps/RNN13.pdf
 
+#BI-LSTM in tf
+
+https://github.com/dennybritz/tf-rnn/blob/master/bidirectional_rnn.ipynb
+
 
 https://github.com/aymericdamien/TensorFlow-Examples/issues/8
 
-#CTC and BI-LSTM in tf
+#CTC 
 
 https://stackoverflow.com/questions/42488070/how-to-design-the-label-for-tensorflows-ctc-loss-layer?rq=1
 
