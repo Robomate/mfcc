@@ -33,6 +33,8 @@ https://stackoverflow.com/questions/22273119/beam-search-algorithm-how-does-it-w
 
 http://www.phontron.com/slides/nlp-programming-en-13-search.pdf
 
+http://proceedings.mlr.press/v32/graves14.pdf
+
 
 #RNN Transducer
 
