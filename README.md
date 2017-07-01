@@ -35,6 +35,7 @@ http://www.phontron.com/slides/nlp-programming-en-13-search.pdf
 
 http://proceedings.mlr.press/v32/graves14.pdf
 
+https://github.com/bshillingford/ctc-beam-search/blob/master/ctc_beamsearch.py
 
 #RNN Transducer
 
