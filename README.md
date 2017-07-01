@@ -31,6 +31,8 @@ https://stackoverflow.com/questions/40779479/preparing-target-label-in-tensorflo
 
 https://stackoverflow.com/questions/22273119/beam-search-algorithm-how-does-it-work
 
+http://www.phontron.com/slides/nlp-programming-en-13-search.pdf
+
 
 #RNN Transducer
 
