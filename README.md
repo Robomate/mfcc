@@ -38,6 +38,8 @@ http://proceedings.mlr.press/v32/graves14.pdf
 
 https://github.com/bshillingford/ctc-beam-search/blob/master/ctc_beamsearch.py
 
+https://arxiv.org/pdf/1211.3711.pdf
+
 #RNN Transducer
 
 Dissertation
