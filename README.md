@@ -8,8 +8,9 @@ https://www.cs.toronto.edu/~fritz/absps/RNN13.pdf
 
 #BI-LSTM in tf
 
-https://github.com/dennybritz/tf-rnn/blob/master/bidirectional_rnn.ipynb
+https://svds.com/tensorflow-rnn-tutorial/
 
+https://github.com/dennybritz/tf-rnn/blob/master/bidirectional_rnn.ipynb
 
 https://github.com/aymericdamien/TensorFlow-Examples/issues/8
 
