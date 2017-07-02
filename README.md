@@ -51,3 +51,8 @@ https://cs.stanford.edu/~acoates/ba_dls_speech2016.pdf
 https://blog.heuritech.com/2016/01/20/attention-mechanism/
 
 https://github.com/ilivans/tf-rnn-attention/blob/master/attention.py
+
+
+#cnn for end-to-end 2017
+
+https://arxiv.org/pdf/1701.02720.pdf
