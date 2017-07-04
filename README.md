@@ -60,6 +60,12 @@ https://blog.heuritech.com/2016/01/20/attention-mechanism/
 
 https://github.com/ilivans/tf-rnn-attention/blob/master/attention.py
 
+http://papers.nips.cc/paper/5847-attention-based-models-for-speech-recognition.pdf
+
+https://arxiv.org/abs/1406.1078
+
+https://arxiv.org/pdf/1508.04395.pdf
+
 
 #cnn for end-to-end 2017
 
