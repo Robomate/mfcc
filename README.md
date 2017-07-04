@@ -15,9 +15,12 @@ https://github.com/dennybritz/tf-rnn/blob/master/bidirectional_rnn.ipynb
 https://github.com/aymericdamien/TensorFlow-Examples/issues/8
 
 #Multi BI-LSTM in tf
+
 http://blog.csdn.net/Scotfield_msn/article/details/60339415
 
 #CTC 
+
+https://github.com/jonrein/tensorflow_CTC_example/blob/master/bdlstm_train_sample.py
 
 https://stackoverflow.com/questions/42488070/how-to-design-the-label-for-tensorflows-ctc-loss-layer?rq=1
 
