@@ -70,3 +70,7 @@ https://arxiv.org/pdf/1508.04395.pdf
 #cnn for end-to-end 2017
 
 https://arxiv.org/pdf/1701.02720.pdf
+
+#wfst transducer
+
+https://arxiv.org/pdf/1507.08240.pdf
