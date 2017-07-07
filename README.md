@@ -60,6 +60,10 @@ https://blog.heuritech.com/2016/01/20/attention-mechanism/
 
 https://github.com/ilivans/tf-rnn-attention/blob/master/attention.py
 
+https://stackoverflow.com/questions/43248613/attention-decoder-implementation-in-tensorflow-r1-0
+
+https://www.tensorflow.org/tutorials/seq2seq
+
 http://papers.nips.cc/paper/5847-attention-based-models-for-speech-recognition.pdf
 
 https://arxiv.org/abs/1406.1078
