@@ -56,6 +56,8 @@ https://cs.stanford.edu/~acoates/ba_dls_speech2016.pdf
 
 #Attention Encoder Decoder
 
+https://stackoverflow.com/questions/43656938/attention-mechanism-for-sequence-classification-seq2seq-tensorflow-r1-1
+
 https://blog.heuritech.com/2016/01/20/attention-mechanism/
 
 https://github.com/ilivans/tf-rnn-attention/blob/master/attention.py
