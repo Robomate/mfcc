@@ -83,3 +83,7 @@ https://arxiv.org/pdf/1701.02720.pdf
 #wfst transducer
 
 https://arxiv.org/pdf/1507.08240.pdf
+
+#seq2seq
+
+https://github.com/udacity/deep-learning/blob/master/seq2seq/sequence_to_sequence_implementation.ipynb
