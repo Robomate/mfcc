@@ -6,6 +6,8 @@ https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html
 
 https://www.cs.toronto.edu/~fritz/absps/RNN13.pdf
 
+https://tutorials.botsfloor.com/how-to-build-your-first-chatbot-c84495d4622d
+
 #BI-LSTM in tf
 
 https://svds.com/tensorflow-rnn-tutorial/
