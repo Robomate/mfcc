@@ -22,6 +22,8 @@ http://blog.csdn.net/Scotfield_msn/article/details/60339415
 
 #CTC 
 
+http://wantee.github.io/2015/02/08/rnnlib-connectionist-temporal-classification-and-transcription-layer/#prefix-search-decoding
+
 https://github.com/jonrein/tensorflow_CTC_example/blob/master/bdlstm_train_sample.py
 
 https://stackoverflow.com/questions/42488070/how-to-design-the-label-for-tensorflows-ctc-loss-layer?rq=1
