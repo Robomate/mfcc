@@ -89,3 +89,6 @@ https://arxiv.org/pdf/1507.08240.pdf
 #seq2seq
 
 https://github.com/udacity/deep-learning/blob/master/seq2seq/sequence_to_sequence_implementation.ipynb
+
+#lm models
+https://www.youtube.com/watch?v=Keqep_PKrY8&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=8
