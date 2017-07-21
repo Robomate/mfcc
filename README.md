@@ -97,3 +97,10 @@ https://www.youtube.com/watch?v=Keqep_PKrY8&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7Ek
 #f1 score
 
 https://stackoverflow.com/questions/35365007/tensorflow-precision-recall-f1-score-and-confusion-matrix
+
+resnet, birnn example, awesome speech papers
+
+https://github.com/ligechina/Automatic_Speech_Recognition/tree/master/models
+
+language models
+
