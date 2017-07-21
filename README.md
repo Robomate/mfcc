@@ -102,5 +102,9 @@ resnet, birnn example, awesome speech papers
 
 https://github.com/ligechina/Automatic_Speech_Recognition/tree/master/models
 
+https://github.com/zzw922cn/awesome-speech-recognition-speech-synthesis-papers
+
 language models
+
+https://arxiv.org/abs/1707.05589
 
