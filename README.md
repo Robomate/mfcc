@@ -78,7 +78,9 @@ https://arxiv.org/pdf/1508.04395.pdf
 
 https://talbaumel.github.io/attention/
 
-#cnn for end-to-end 2017
+#cnn ctc and for end-to-end 2017
+
+https://github.com/synckey/tensorflow_lstm_ctc_ocr
 
 https://arxiv.org/pdf/1701.02720.pdf
 
