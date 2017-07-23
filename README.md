@@ -92,6 +92,8 @@ https://arxiv.org/pdf/1507.08240.pdf
 
 https://github.com/udacity/deep-learning/blob/master/seq2seq/sequence_to_sequence_implementation.ipynb
 
+https://stackoverflow.com/questions/43622778/tensorflow-sequence-to-sequence-model-using-the-seq2seq-api-ver-1-1-and-above?rq=1
+
 #lm models
 
 https://www.youtube.com/watch?v=Keqep_PKrY8&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=8
@@ -109,4 +111,8 @@ https://github.com/zzw922cn/awesome-speech-recognition-speech-synthesis-papers
 language models
 
 https://arxiv.org/abs/1707.05589
+
+https://stackoverflow.com/questions/42494678/language-modelling-with-rnn-and-lstm-cell-in-tensorflow?rq=1
+
+https://stackoverflow.com/questions/35687678/using-a-pre-trained-word-embedding-word2vec-or-glove-in-tensorflow
 
