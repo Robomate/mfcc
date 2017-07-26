@@ -1,0 +1,62 @@
+#!/bin/csh -fb
+# SHELL Script to evaluate recognition results
+#
+
+if ($#argv < 1) goto usage
+if ($#argv > 2) goto usage
+
+#set label_dir         =    /tmp/tmp_label
+set mlf_file          =    /data/eri_german/config_files/all.mlf
+set lab_listfile      =    /data/eri_german/config_files/commands_64.labels
+set tmp_listfile      =    /tmp/eri_german_tmp.list
+set speech_dir        =    /data/eri_german/speech/8khz
+
+# include HTK path
+set name = `printenv PATH | grep htk`
+if ($name == "") then
+        setenv PATH $PATH{:/packages/htk-3.4/bin.linux}
+endif
+
+set ddd = `date`
+echo "************************************" 
+echo "* RECOGNITION RESULTS              *" 
+echo "*  Frontend:  HGH-NR               *" 
+echo "*  Date: " $ddd 
+echo "************************************" 
+echo " "
+echo " Recognition of ERI-German commands"  
+echo "_______________________________________"  
+
+
+ls -1 $1/*.rec | awk '{printf("%s/%s\n", dir, $1)}' dir=$1 > $tmp_listfile
+
+#evaluate recognition results
+#HResults -e "???" w_sil -p -L $label_dir -S $tmp_listfile $lab_listfile 
+HResults -e "???" sil -p -I $mlf_file $lab_listfile $1/*.rec
+if ($#argv == 2) then
+   set list = `HResults -e "???" w_sil -t -L $label_dir -S $tmp_listfile $lab_listfile \
+	| awk '($1 == "Aligned") {print $3}'`
+  set nlist = $#list
+  if ( -e $2) then
+	rm $2
+  	echo $2" removed!"
+  endif
+  while ($nlist > 0)
+	set name = $list[$nlist]:t:r{.raw}
+	find $speech_dir -name $name >> $2
+	@ nlist--
+  end
+endif
+
+rm $tmp_listfile 
+exit
+
+usage:
+echo ""
+echo "usage: "$0" <subdirectory> <optional: filename of erroneous patterns>  "
+echo ""
+echo "Evaluate all "\"rec\"" in the given subdirectory"
+echo ""
+exit 1
+
+

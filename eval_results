@@ -1,0 +1,67 @@
+#
+# SHELL Script to evaluate recognition results
+#
+
+#if ($#argv < 1) goto usage
+#if ($#argv > 2) goto usage
+
+mlf_file=/data/rvg_new/config_files/rvg_digits_ttt.mlf
+#mlf_file=/data/rvg_new/config_files/all_v3_6_zi_word.mlf
+lab_listfile=/data/rvg_new/config_files/digits_sil_sp.labels
+tmp_listfile=/tmp/tmp_recfiles_rvg_hgh         # temporary list file
+#set speech_dir        = /data/rvg_new/speech/8khz
+
+# include HTK path
+name=`printenv PATH | grep htk`
+if [ "$name" = "" ]
+then
+        PATH=$PATH:/packages/htk-3.4/bin.linux
+        export PATH
+fi
+
+ddd=`date`
+echo "************************************"
+echo "* RECOGNITION RESULTS              *"
+echo "*  Frontend:  HGH-NR               *"
+echo "*  Date: " $ddd
+echo "************************************"
+# evaluate RVG data
+echo " "
+echo " Recognition of RVG data"
+echo "_______________________________________"
+
+#ls -1 $1 | awk '{printf("%s/%s\n", dir, $1)}' dir=$1 > $tmp_listfile
+ls -1 $1/*.rec > $tmp_listfile
+HResults -e "???" sil -e "???" sp -p -I $mlf_file -S $tmp_listfile $lab_listfile
+exit
+if ($#argv == 2) then
+   set list = `HResults -e "???" sil -e "???" sp -t -I $mlf_file -S $tmp_listfile $lab_listfile \
+        | awk '($1 == "Aligned") {print $3}'`
+#   set list = `HResults -e "???" w_sil -e "???" g_breath -t -I digits_only_.mlf /data/rvg_new/config_files/digits.labels rvg_digits_all_only_c_d_new_mod3a.mlf | awk '($1 == "Aligned") {print $3}'`
+  set nlist = $#list
+
+  if ( -e $2) then
+        rm $2
+        echo $2" removed!"
+  endif
+  while ($nlist > 0)
+        set name = $list[$nlist]:t:r{.raw}
+        find $speech_dir -name $name >> $2
+        @ nlist--
+  end
+else
+  #evaluate recognition results
+  HResults -e "???" sil -e "???" sp -p -I $mlf_file -S $tmp_listfile $lab_listfile
+  #HResults -e "???" w_sil -e "???" g_breath -t -I $mlf_file -S $tmp_listfile $lab_listfile
+endif
+
+rm $tmp_listfile
+exit
+
+usage:
+echo ""
+echo "usage: "$0" <subdirectory> <optional: list of erroneous speech files>  "
+echo ""
+echo "Evaluate all "\"rec\"" in the given subdirectory"
+echo ""
+exit 1
