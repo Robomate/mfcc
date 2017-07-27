@@ -1,5 +1,9 @@
 # links
 
+#resnet
+
+https://github.com/xuyuwei/resnet-tf/blob/master/resnet.py
+
 #lstm, multiRnncell
 
 https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html
