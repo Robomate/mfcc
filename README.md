@@ -2,6 +2,8 @@
 
 #resnet
 
+https://github.com/wenxinxu/resnet-in-tensorflow/blob/master/resnet.py
+
 https://github.com/xuyuwei/resnet-tf/blob/master/resnet.py
 
 #lstm, multiRnncell
