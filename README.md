@@ -6,6 +6,8 @@ https://github.com/wenxinxu/resnet-in-tensorflow/blob/master/resnet.py
 
 https://github.com/xuyuwei/resnet-tf/blob/master/resnet.py
 
+http://cv-tricks.com/tensorflow-tutorial/understanding-alexnet-resnet-squeezenetand-running-on-tensorflow/
+
 #lstm, multiRnncell
 
 https://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html
