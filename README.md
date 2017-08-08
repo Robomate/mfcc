@@ -1,5 +1,9 @@
 # links
 
+#xsampa converter
+
+http://tom.brondsted.dk/text2phoneme/transcribeit.php
+
 #resnet
 
 https://github.com/wenxinxu/resnet-in-tensorflow/blob/master/resnet.py
