@@ -2,8 +2,10 @@
 #!/usr/bin/env python
 #coding: utf-8
 '''
-toy example for 5 state HMM
-decode german number: Eins -> ains
+viterbi decoder
+decoder for single word recognition
+connect hmms in series
+example: -sil-eins-sil (for German digit one)
 '''
 import numpy as np
 import os
