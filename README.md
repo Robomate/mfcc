@@ -4,6 +4,12 @@
 
 http://tom.brondsted.dk/text2phoneme/transcribeit.php
 
+#dense net
+
+https://medium.com/intuitionmachine/notes-on-the-implementation-densenet-in-tensorflow-beeda9dd1504
+
+https://github.com/tdeboissiere/DeepLearningImplementations/tree/master/DenseNet
+
 #resnet
 
 https://github.com/wenxinxu/resnet-in-tensorflow/blob/master/resnet.py
