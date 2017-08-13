@@ -11,6 +11,9 @@ https://medium.com/intuitionmachine/notes-on-the-implementation-densenet-in-tens
 https://github.com/tdeboissiere/DeepLearningImplementations/tree/master/DenseNet
 
 #resnet
+https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv
+
+https://github.com/dalgu90/resnet-18-tensorflow/blob/master/resnet.py
 
 https://github.com/wenxinxu/resnet-in-tensorflow/blob/master/resnet.py
 
