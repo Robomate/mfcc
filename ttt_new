@@ -1,0 +1,65 @@
+abbrechen       sil-a+p a-p+b p-b+r b-r+E r-E+C E-C+@ C-@+n @-n+sil
+abbruch         sil-a+p a-p+b p-b+r b-r+U r-U+x U-x+sil
+ablehnen        sil-a+p a-p+l p-l+e: l-e:+n e:-n+@ n-@+n @-n+sil
+aendern         sil-E+n E-n+d n-d+ar d-ar+n ar-n+sil
+akzeptieren     sil-a+k a-k+t k-t+s t-s+E s-E+p E-p+t p-t+i: t-i:+r i:-r+@ r-@+n @-n+sil
+alle            sil-a+l a-l+@ l-@+sil
+an              sil-a+n a-n+sil
+anfang          sil-a+n a-n+f n-f+a f-a+N a-N+sil
+anhoeren        sil-a+n a-n+h n-h+Oe h-Oe+r Oe-r+@ r-@+n @-n+sil
+annehmen        sil-a+n a-n+n n-n+e: n-e:+m e:-m+@ m-@+n @-n+sil
+anruf           sil-a+n a-n+r n-r+u: r-u:+f u:-f+sil
+anrufen         sil-a+n a-n+r n-r+u: r-u:+f u:-f+@ f-@+n @-n+sil
+anzeigen        sil-a+n a-n+t n-t+s t-s+aI s-aI+g aI-g+@ g-@+n @-n+sil
+aus             sil-aU+s aU-s+sil
+bereitschaft    sil-b+@ b-@+r @-r+aI r-aI+t aI-t+S t-S+a S-a+f a-f+t f-t+sil
+deutsch         sil-d+OY d-OY+t OY-t+S t-S+sil
+ein             sil-aI+n aI-n+sil
+eintrag         sil-aI+n aI-n+t n-t+r t-r+a: r-a:+k a:-k+sil
+ende            sil-E+n E-n+d n-d+@ d-@+sil
+hilfe           sil-h+I h-I+l I-l+f l-f+@ f-@+sil
+ja              sil-j+a: j-a:+sil
+kommando        sil-k+O k-O+m O-m+a m-a+n a-n+d n-d+o: d-o:+sil
+korrektur       sil-k+O k-O+r O-r+E r-E+k E-k+t k-t+u: t-u:+ar u:-ar+sil
+korrigieren     sil-k+O k-O+r O-r+i: r-i:+g i:-g+i: g-i:+r i:-r+@ r-@+n @-n+sil
+kurzwahl        sil-k+U k-U+ar U-ar+t ar-t+s t-s+v s-v+a: v-a:+l a:-l+sil
+loeschen        sil-l+Oe l-Oe+S Oe-S+@ S-@+n @-n+sil
+makro           sil-m+a: m-a:+k a:-k+r k-r+o: r-o:+sil
+menue           sil-m+e: m-e:+n e:-n+y: n-y:+sil
+nachricht       sil-n+a: n-a:+x a:-x+r x-r+I r-I+C I-C+t C-t+sil
+naechste        sil-n+E: n-E:+C E:-C+s C-s+t s-t+@ t-@+sil
+name            sil-n+a: n-a:+m a:-m+@ m-@+sil
+namenswahl      sil-n+a: n-a:+m a:-m+@ m-@+n @-n+s n-s+v s-v+a: v-a:+l a:-l+sil
+nein            sil-n+aI n-aI+n aI-n+sil
+neue            sil-n+OY n-OY+@ OY-@+sil
+notruf          sil-n+o: n-o:+t o:-t+r t-r+u: r-u:+f u:-f+sil
+nuernberg       sil-n+Y n-Y+ar Y-ar+n ar-n+b n-b+E b-E+ar E-ar+k ar-k+sil
+nummer          sil-n+U n-U+m U-m+ar m-ar+sil
+ok              sil-o:+k o:-k+e: k-e:+sil
+pause           sil-p+aU p-aU+z aU-z+@ z-@+sil
+plus            sil-p+l p-l+U l-U+s U-s+sil
+ralph           sil-r+a r-a+l a-l+f l-f+sil
+raute           sil-r+aU r-aU+t aU-t+@ t-@+sil
+schraubstock    sil-S+r S-r+aU r-aU+b aU-b+S b-S+t S-t+O t-O+k O-k+sil
+sil             sil
+speichern       sil-S+p S-p+aI p-aI+C aI-C+@ C-@+ar @-ar+n ar-n+sil
+start           sil-S+t S-t+a t-a+r a-r+t r-t+sil
+starten         sil-S+t S-t+a t-a+r a-r+t r-t+@ t-@+n @-n+sil
+stern           sil-S+t S-t+E t-E+ar E-ar+n ar-n+sil
+stop            sil-S+t S-t+O t-O+p O-p+sil
+suchen          sil-z+u: z-u:+x u:-x+@ x-@+n @-n+sil
+telefonbuch     sil-t+e: t-e:+l e:-l+e: l-e:+f e:-f+o: f-o:+n o:-n+b n-b+u: b-u:+x u:-x+sil
+tina            sil-t+i: t-i:+n i:-n+a n-a+sil
+vor             sil-f+o: f-o:+ar o:-ar+sil
+waehlen         sil-v+E: v-E:+l E:-l+@ l-@+n @-n+sil
+wahl            sil-v+a: v-a:+l a:-l+sil
+wahlwiederholung sil-v+a: v-a:+l a:-l+v l-v+i: v-i:+d i:-d+ar d-ar+h ar-h+o: h-o:+l o:-l+U l-U+N U-N+sil
+weiter          sil-v+aI v-aI+t aI-t+ar t-ar+sil
+wiedergabe      sil-v+i: v-i:+d i:-d+ar d-ar+g ar-g+a g-a+b a-b+@ b-@+sil
+wiederholen     sil-v+i: v-i:+d i:-d+ar d-ar+h ar-h+o: h-o:+l o:-l+@ l-@+n @-n+sil
+wiederholung    sil-v+i: v-i:+d i:-d+ar d-ar+h ar-h+o: h-o:+l o:-l+U l-U+N U-N+sil
+zeitansage      sil-t+s t-s+aI s-aI+t aI-t+a t-a+n a-n+z n-z+a: z-a:+g a:-g+@ g-@+sil
+ziffer          sil-t+s t-s+I s-I+f I-f+ar f-ar+sil
+ziffernwahl     sil-t+s t-s+I s-I+f I-f+ar f-ar+n ar-n+v n-v+a: v-a:+l a:-l+sil
+zurueck         sil-t+s t-s+u s-u+r u-r+Y r-Y+k Y-k+sil
+zurueckweisen   sil-t+s t-s+u s-u+r u-r+U r-U+E U-E+k E-k+v k-v+aI v-aI+z aI-z+@ z-@+n @-n+sil
