@@ -2,6 +2,8 @@
 
 #language model
 
+https://github.com/townie/PTB-dataset-from-Tomas-Mikolov-s-webpage
+
 https://github.com/hunkim/word-rnn-tensorflow
 
 https://github.com/nelken/tf/blob/master/ptb_word_lm.py
