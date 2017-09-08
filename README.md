@@ -1,5 +1,15 @@
 # links
 
+#language model
+
+https://github.com/hunkim/word-rnn-tensorflow
+
+https://github.com/nelken/tf/blob/master/ptb_word_lm.py
+
+https://github.com/wpm/tfrnnlm
+
+https://github.com/ciprian-chelba/1-billion-word-language-modeling-benchmark
+
 #xsampa converter
 
 http://tom.brondsted.dk/text2phoneme/transcribeit.php
