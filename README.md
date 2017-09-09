@@ -2,6 +2,8 @@
 
 #hardware
 
+https://www.youtube.com/watch?v=9t1NjdP64XY
+
 https://www.cnx-software.com/2016/08/27/getting-started-with-respeaker-wifi-iot-board-audio-capabilities-voice-recognition-and-synthesis/
 
 https://github.com/respeaker/respeaker_python_library
