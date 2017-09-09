@@ -1,5 +1,9 @@
 # links
 
+#hardware
+
+https://github.com/respeaker/respeaker_python_library
+
 #language model
 
 https://github.com/townie/PTB-dataset-from-Tomas-Mikolov-s-webpage
