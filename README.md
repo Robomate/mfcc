@@ -1,5 +1,9 @@
 # links
 
+#unsupervised learning
+
+http://giorgiopatrini.org/posts/2017/09/06/in-search-of-the-missing-signals/
+
 #hardware
 
 https://developers.google.com/assistant/sdk/develop/python/hardware/audio
