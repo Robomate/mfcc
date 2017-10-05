@@ -1,5 +1,11 @@
 # links
 
+
+#kaldi/htk
+
+https://github.com/keighrim/kaldi-yesno-tutorial
+
+
 #unsupervised learning
 
 http://giorgiopatrini.org/posts/2017/09/06/in-search-of-the-missing-signals/
