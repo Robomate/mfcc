@@ -3,6 +3,8 @@
 
 #kaldi/htk
 
+http://kaldi-asr.org/doc/kaldi_for_dummies.html
+
 https://github.com/keighrim/kaldi-yesno-tutorial
 
 
