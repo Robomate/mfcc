@@ -1,0 +1,40 @@
+LHD: Partitur 1.2.10
+REP: Muenchen
+SNB: 2
+SAM: 22050
+SBF: 01
+SSB: 16
+NCH: 1
+ORT:	0	6
+ORT:	1	5
+ORT:	2	0
+ORT:	3	2
+ORT:	4	7
+ORT:	5	7
+KAN:	0	z'Eks
+KAN:	1	f'Ynf
+KAN:	2	n'Ul
+KAN:	3	tsv'aI
+KAN:	4	z'i:b@n
+KAN:	5	z'i:b@n
+
+LHD: Partitur 1.2.10
+REP: Muenchen
+SNB: 2
+SAM: 22050
+SBF: 01
+SSB: 16
+NCH: 1
+ORT:,0,6
+ORT:,1,5
+ORT:,2,0
+ORT:,3,zwo
+ORT:,4,7
+ORT:,5,7
+KAN:,0,z'Eks
+KAN:,1,f'Ynf
+KAN:,2,n'Ul
+KAN:,3,tsv'o:
+KAN:,4,z'i:b@n
+KAN:,5,z'i:b@n
+
