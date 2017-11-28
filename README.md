@@ -1,5 +1,7 @@
 # links
 
+### new ctc
+https://distill.pub/2017/ctc/
 
 #kaldi/htk
 
